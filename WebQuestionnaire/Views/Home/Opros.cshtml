@@ -1,0 +1,63 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Опросник</title>
+    <link rel="stylesheet" href="~/css/opros.css">
+</head>
+<body>
+    <div class="priv">
+        <h2>Опросник</h2>
+        <div class="rules">
+            <p>Инструкция</p>
+            <ul class="rule-list">
+                <li>
+                    Откройте paint и нарисуте в нем 4 круга
+                    <ul>
+                        <li class="prif">Я</li>
+                        <li class="prif">Семья</li>
+                        <li class="prif">Проффесиональная деятельность</li>
+                        <li class="prif">Самара</li>
+                    </ul>
+                    они могут быть разных размеров и описывают вашу идентичность
+                </li>
+                <li>Сделайте скрин картинки</li>
+                <li>Подумайте о приятном воспоминании (думайте 5 минут)</li>
+                <li>Если есть желание, то опишите его в поле Воспоминание</li>
+                <li>Еще раз нарисуйте круги, но по другому</li>
+                <li>Прикрепите ваши рисунки</li>
+            </ul>
+        </div>
+
+        <form asp-controller="Home" asp-action="Submit" method="post" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label for="feedback">Воспоминание</label>
+                <textarea id="feedback" name="feedback" rows="4"></textarea>
+            </div>
+
+            <!-- Прикрепление файла -->
+            <div class="form-group">
+                <label for="file">Прикрепить файл с рисунком до воспоминаний:</label>
+                <input type="file" id="file" name="file" accept=".jpg, .png, .pdf, .docx">
+            </div>
+
+            <!-- Прикрепление файла -->
+            <div class="form-group">
+                <label for="file2">Прикрепить файл с рисунком после воспоминаний:</label>
+                <input type="file" id="file2" name="file2" accept=".jpg, .png, .pdf, .docx">
+            </div>
+
+            <!-- Кнопка отправки -->
+            <button type="submit">Отправить</button>
+
+        </form>
+    </div>
+</body>
+</html>

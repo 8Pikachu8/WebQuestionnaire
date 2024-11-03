@@ -1,0 +1,17 @@
+﻿
+@model int
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="card col-md-12">
+    <p class ="text-center">@Model</p>
+    <div>
+        <nav>
+            <a asp-controller="Home" asp-action="Privacy">Зайти в приват</a>
+            <a asp-controller="Home" asp-action="Opros">Зайти в опрос</a>
+            <a asp-controller="Home" asp-action="TestEnumerable">Зайти в test</a>
+        </nav>
+    </div>
+</div>
+

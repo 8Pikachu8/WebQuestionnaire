@@ -87,7 +87,7 @@ namespace WebQuestionnaire.Controllers
         }
 
         [HttpPost]
-        public IActionResult Submit( string feedback, IFormFile file, IFormFile file2)
+        public async Task<IActionResult> Submit( string feedback, IFormFile file, IFormFile file2)
         {
             if (file != null && file.Length > 0 && file2 != null && file2.Length > 0)
             {
@@ -103,12 +103,12 @@ namespace WebQuestionnaire.Controllers
                 // Сохраняем файл
                 using (var stream = new FileStream(filePath, FileMode.Create))
                 {
-                    file.CopyToAsync(stream);
+                    await file.CopyToAsync(stream);
                 }
 
                 using (var stream = new FileStream(filePath2, FileMode.Create))
                 {
-                    file2.CopyToAsync(stream);
+                    await file2.CopyToAsync(stream);
                 }
             }
 
